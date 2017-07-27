@@ -1,0 +1,25 @@
+{
+  "name": "daily-express-login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e .js,.mustache,.css,.json app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "mustache-express": "^1.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "boilerplate": {
+    "name": "express-skeleton",
+    "version": "1.0.0",
+    "author": "Michael Sweeney <jfmike@gmail.com> (https://github.com/overthemike)",
+    "license": "MIT"
+  },
+  "description": ""
+}
