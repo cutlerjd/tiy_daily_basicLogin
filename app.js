@@ -17,9 +17,10 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-
+//Applying route of login before checking for logged in
 app.use("/login", loginRouter);
-app.use(giveSessionID)
+//Redirects any user who has not logged in to the login page
+app.use(checkLoggedIn)
 
 app.get("/", function(req, res, next){
   res.render("index", {userName:req.session.userName})
@@ -29,7 +30,7 @@ app.listen(3000, function(){
   console.log("App running on port 3000")
 })
 
-function giveSessionID(req,res,next){
+function checkLoggedIn(req,res,next){
   let sess = req.session
   if(sess){
     if(sess.loggedIn){
