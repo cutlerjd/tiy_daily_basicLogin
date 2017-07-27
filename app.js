@@ -17,12 +17,12 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-app.use(giveSessionID)
-app.use("/login", loginRouter);
 
+app.use("/login", loginRouter);
+app.use(giveSessionID)
 
 app.get("/", function(req, res, next){
-  res.render("index", {appType:"Express"})
+  res.render("index", {userName:req.session.userName})
 })
 
 app.listen(3000, function(){
@@ -37,10 +37,10 @@ function giveSessionID(req,res,next){
     next()
     }else {
       console.log("No login data")
-      next()
+      res.redirect('/login')
     }
   } else {
     console.log("No session data")
-    next()
+    res.redirect('/login')
   }
 }
